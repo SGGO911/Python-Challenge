@@ -43,8 +43,6 @@ with open(csvpath) as csvfile:
     max_month = changes.index(max_changes) + 1
     min_month = changes.index(min_changes) + 1 
 
-
-
     print("Financial Analysis")
     print("-------------------")
     print(f'Total Months: {months}')
@@ -53,7 +51,14 @@ with open(csvpath) as csvfile:
     print(f'Greatest Increase in Profit: {months_list[max_month]} (${max_changes})')
     print(f'Greatest Decrease in Profit: {months_list[min_month]} (${min_changes})')
 
-
+    with open('./Analysis/output.txt', 'w') as f:
+        f.write("Financial Analysis\n")
+        f.write("-------------------\n")
+        f.write(f'Total Months: {months}\n')
+        f.write(f'Total: {profit_losses}\n')
+        f.write(f'Average Change: ${sum(changes) / len(changes)}\n')
+        f.write(f'Greatest Increase in Profit: {months_list[max_month]} (${max_changes})\n')
+        f.write(f'Greatest Decrease in Profit: {months_list[min_month]} (${min_changes})\n')
 
 
     
